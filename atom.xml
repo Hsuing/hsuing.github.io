@@ -6,7 +6,7 @@
   <link href="https://hsuing.github.io/atom.xml" rel="self"/>
   
   <link href="https://hsuing.github.io/"/>
-  <updated>2023-11-21T09:39:10.433Z</updated>
+  <updated>2023-11-21T10:23:26.809Z</updated>
   <id>https://hsuing.github.io/</id>
   
   <author>
@@ -17,18 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://hsuing.github.io/posts/0.html"/>
-    <id>https://hsuing.github.io/posts/0.html</id>
-    <published>2023-11-21T09:39:09.863Z</published>
-    <updated>2023-11-21T09:39:10.433Z</updated>
+    <title>harbor</title>
+    <link href="https://hsuing.github.io/posts/273c6248.html"/>
+    <id>https://hsuing.github.io/posts/273c6248.html</id>
+    <published>2023-11-21T10:21:40.000Z</published>
+    <updated>2023-11-21T10:23:26.809Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;1-Registry&quot;&gt;&lt;a href=&quot;#1-Registry&quot; class=&quot;headerlink&quot; title=&quot;1.Registry&quot;&gt;&lt;/a&gt;1.Registry&lt;/h1&gt;&lt;p&gt;官方文档：&lt;a</summary>
+    <summary type="html">&lt;h1 id=&quot;0-文档&quot;&gt;&lt;a href=&quot;#0-文档&quot; class=&quot;headerlink&quot; title=&quot;0.文档&quot;&gt;&lt;/a&gt;0.文档&lt;/h1&gt;&lt;p&gt;官网：&lt;a</summary>
         
       
     
@@ -38,18 +38,18 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://hsuing.github.io/posts/0.html"/>
-    <id>https://hsuing.github.io/posts/0.html</id>
-    <published>2023-11-21T02:28:43.112Z</published>
-    <updated>2023-11-21T02:28:43.290Z</updated>
+    <title>register</title>
+    <link href="https://hsuing.github.io/posts/5ff94014.html"/>
+    <id>https://hsuing.github.io/posts/5ff94014.html</id>
+    <published>2023-11-21T10:20:31.000Z</published>
+    <updated>2023-11-21T10:23:01.197Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;0-文档&quot;&gt;&lt;a href=&quot;#0-文档&quot; class=&quot;headerlink&quot; title=&quot;0.文档&quot;&gt;&lt;/a&gt;0.文档&lt;/h1&gt;&lt;p&gt;官网：&lt;a</summary>
+    <summary type="html">&lt;h1 id=&quot;1-Registry&quot;&gt;&lt;a href=&quot;#1-Registry&quot; class=&quot;headerlink&quot; title=&quot;1.Registry&quot;&gt;&lt;/a&gt;1.Registry&lt;/h1&gt;&lt;p&gt;官方文档：&lt;a</summary>
         
       
     
