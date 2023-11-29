@@ -1,0 +1,1 @@
+import{_ as e,D as o,o as n,c as s,I as c,w as a,a as _}from"./framework.PZ77rLUR.js";const r={},l={class:"box"};function d(f,u){const t=o("sb-button");return n(),s("div",l,[c(t,{long:""},{default:a(()=>[_(" long ")]),_:1})])}const i=e(r,[["render",d]]);export{i as default};

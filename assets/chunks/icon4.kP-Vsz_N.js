@@ -1,0 +1,1 @@
+import{_ as o,D as c,o as n,c as s,k as t,I as a}from"./framework.PZ77rLUR.js";const r={},_={class:"box"};function i(d,l){const e=c("sb-icon");return n(),s("div",_,[t("div",null,[a(e,{name:"sync",spin:""})])])}const p=o(r,[["render",i]]);export{p as default};

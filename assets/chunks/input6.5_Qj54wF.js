@@ -1,0 +1,1 @@
+import{d as s,h as a,D as l,o as p,c as r,I as u}from"./framework.PZ77rLUR.js";const d={class:"input-demo"},i=s({__name:"input6",setup(c){const e=a("");return(m,o)=>{const t=l("sb-input");return p(),r("div",d,[u(t,{modelValue:e.value,"onUpdate:modelValue":o[0]||(o[0]=n=>e.value=n),"show-password":"true",placeholder:"请输入内容"},null,8,["modelValue"])])}}});export{i as default};

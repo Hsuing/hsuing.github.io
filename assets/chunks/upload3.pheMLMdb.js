@@ -1,0 +1,1 @@
+import{_ as t,D as s,o as c,c as a,I as o}from"./framework.PZ77rLUR.js";const r={},n={class:".upload-demo"};function l(_,d){const e=s("sb-upload");return c(),a("div",n,[o(e,{multiple:"true"}),o(e,{drag:"true",multiple:"true"})])}const u=t(r,[["render",l]]);export{u as default};

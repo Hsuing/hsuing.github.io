@@ -1,0 +1,1 @@
+import{_ as s,D as o,o as n,c as a,a as _,I as t,w as r}from"./framework.PZ77rLUR.js";const p={},i={class:"box"};function d(b,m){const e=o("sb-icon"),c=o("sb-back-top");return n(),a("div",i,[_(" 下拉 10 px 显示 "),t(c,{style:{padding:"10px"},bottom:150,right:150,height:10},{default:r(()=>[t(e,{name:"up"})]),_:1})])}const x=s(p,[["render",d]]);export{x as default};
