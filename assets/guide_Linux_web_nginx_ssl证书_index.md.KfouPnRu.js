@@ -1,0 +1,65 @@
+import{_ as s,o as n,c as a,R as l}from"./chunks/framework.PZ77rLUR.js";const u=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"guide/Linux/web/nginx/ssl证书/index.md","filePath":"guide/Linux/web/nginx/ssl证书/index.md","lastUpdated":1701684699000}'),e={name:"guide/Linux/web/nginx/ssl证书/index.md"},p=l(`<p>注意：这里的pem 文件是下面两个文件合并而成： #cat servername.crt servername.key |tee servername.pem</p><p><strong>.key 转换成 .pem</strong></p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#e1e4e8;">openssl rsa -in temp.key -out temp.pem</span></span></code></pre><pre class="shiki github-light vp-code-light"><code><span class="line"><span style="color:#24292e;">openssl rsa -in temp.key -out temp.pem</span></span></code></pre></div><p><strong>.crt 转换成 .pem</strong>：</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#e1e4e8;">openssl x509 -in tmp.crt -out tmp.pem</span></span></code></pre><pre class="shiki github-light vp-code-light"><code><span class="line"><span style="color:#24292e;">openssl x509 -in tmp.crt -out tmp.pem</span></span></code></pre></div><p><strong>查看证书时间</strong>：</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#e1e4e8;"> openssl x509 -in turebcw.crt -noout -dates</span></span></code></pre><pre class="shiki github-light vp-code-light"><code><span class="line"><span style="color:#24292e;"> openssl x509 -in turebcw.crt -noout -dates</span></span></code></pre></div><h2 id="查看key-和crt-是否一致" tabindex="-1">查看key 和crt 是否一致 <a class="header-anchor" href="#查看key-和crt-是否一致" aria-label="Permalink to &quot;查看key 和crt 是否一致&quot;">​</a></h2><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#e1e4e8;">[root@hkapp bcwex.me_ssl]# openssl x509 -noout -modulus -in bcwex_me.crt | openssl md5</span></span>
+<span class="line"><span style="color:#e1e4e8;">(stdin)= 925e20129411180ac7d76145ae0b96bb</span></span>
+<span class="line"><span style="color:#e1e4e8;"></span></span>
+<span class="line"><span style="color:#e1e4e8;">[root@hkapp bcwex.me_ssl]# openssl rsa -noout -modulus -in bcwex_me.key | openssl md5</span></span>
+<span class="line"><span style="color:#e1e4e8;">(stdin)= bf164248910d2fe5220d71b2a829dff4</span></span></code></pre><pre class="shiki github-light vp-code-light"><code><span class="line"><span style="color:#24292e;">[root@hkapp bcwex.me_ssl]# openssl x509 -noout -modulus -in bcwex_me.crt | openssl md5</span></span>
+<span class="line"><span style="color:#24292e;">(stdin)= 925e20129411180ac7d76145ae0b96bb</span></span>
+<span class="line"><span style="color:#24292e;"></span></span>
+<span class="line"><span style="color:#24292e;">[root@hkapp bcwex.me_ssl]# openssl rsa -noout -modulus -in bcwex_me.key | openssl md5</span></span>
+<span class="line"><span style="color:#24292e;">(stdin)= bf164248910d2fe5220d71b2a829dff4</span></span></code></pre></div><h2 id="查看证书类型" tabindex="-1">查看证书类型 <a class="header-anchor" href="#查看证书类型" aria-label="Permalink to &quot;查看证书类型&quot;">​</a></h2><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#6A737D;"># 查看证书内容，</span></span>
+<span class="line"><span style="color:#6A737D;"># -in指定证书位置（是key，不是cert）</span></span>
+<span class="line"><span style="color:#6A737D;"># -text 输出证书所有信息</span></span>
+<span class="line"><span style="color:#6A737D;"># -noout 不输出证书本身</span></span>
+<span class="line"><span style="color:#B392F0;">openssl</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">x509</span><span style="color:#E1E4E8;"> </span><span style="color:#79B8FF;">-in</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">xxx.key.pem</span><span style="color:#E1E4E8;"> </span><span style="color:#79B8FF;">-text</span><span style="color:#E1E4E8;"> </span><span style="color:#79B8FF;">-noout</span></span>
+<span class="line"><span style="color:#6A737D;"># 查看公钥算法和签名算法</span></span>
+<span class="line"><span style="color:#B392F0;">openssl</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">x509</span><span style="color:#E1E4E8;"> </span><span style="color:#79B8FF;">-in</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">xxx.key.pem</span><span style="color:#E1E4E8;"> </span><span style="color:#79B8FF;">-text</span><span style="color:#E1E4E8;"> </span><span style="color:#79B8FF;">-noout</span><span style="color:#E1E4E8;"> </span><span style="color:#F97583;">|</span><span style="color:#E1E4E8;"> </span><span style="color:#B392F0;">awk</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">&#39;/Public Key|Signature Algorithm/&#39;</span></span></code></pre><pre class="shiki github-light vp-code-light"><code><span class="line"><span style="color:#6A737D;"># 查看证书内容，</span></span>
+<span class="line"><span style="color:#6A737D;"># -in指定证书位置（是key，不是cert）</span></span>
+<span class="line"><span style="color:#6A737D;"># -text 输出证书所有信息</span></span>
+<span class="line"><span style="color:#6A737D;"># -noout 不输出证书本身</span></span>
+<span class="line"><span style="color:#6F42C1;">openssl</span><span style="color:#24292E;"> </span><span style="color:#032F62;">x509</span><span style="color:#24292E;"> </span><span style="color:#005CC5;">-in</span><span style="color:#24292E;"> </span><span style="color:#032F62;">xxx.key.pem</span><span style="color:#24292E;"> </span><span style="color:#005CC5;">-text</span><span style="color:#24292E;"> </span><span style="color:#005CC5;">-noout</span></span>
+<span class="line"><span style="color:#6A737D;"># 查看公钥算法和签名算法</span></span>
+<span class="line"><span style="color:#6F42C1;">openssl</span><span style="color:#24292E;"> </span><span style="color:#032F62;">x509</span><span style="color:#24292E;"> </span><span style="color:#005CC5;">-in</span><span style="color:#24292E;"> </span><span style="color:#032F62;">xxx.key.pem</span><span style="color:#24292E;"> </span><span style="color:#005CC5;">-text</span><span style="color:#24292E;"> </span><span style="color:#005CC5;">-noout</span><span style="color:#24292E;"> </span><span style="color:#D73A49;">|</span><span style="color:#24292E;"> </span><span style="color:#6F42C1;">awk</span><span style="color:#24292E;"> </span><span style="color:#032F62;">&#39;/Public Key|Signature Algorithm/&#39;</span></span></code></pre></div><h2 id="sslscan" tabindex="-1">sslscan <a class="header-anchor" href="#sslscan" aria-label="Permalink to &quot;sslscan&quot;">​</a></h2><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#6A737D;"># 安装sslscan</span></span>
+<span class="line"><span style="color:#6A737D;"># centos如果提示没有zlib.h需要安装这个（可以先不安装）</span></span>
+<span class="line"><span style="color:#B392F0;">yum</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">install</span><span style="color:#E1E4E8;"> </span><span style="color:#79B8FF;">-y</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">zlib</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">zlib-devel</span></span>
+<span class="line"><span style="color:#6A737D;"># clone</span></span>
+<span class="line"><span style="color:#B392F0;">git</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">clone</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">https://github.com/rbsec/sslscan</span></span>
+<span class="line"><span style="color:#79B8FF;">cd</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">sslscan/</span></span>
+<span class="line"><span style="color:#B392F0;">make</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">static</span></span>
+<span class="line"><span style="color:#6A737D;"># 查看是否安装成功</span></span>
+<span class="line"><span style="color:#B392F0;">./sslscan</span></span>
+<span class="line"><span style="color:#6A737D;"># 使用，就可以出现上面的图片类似的结果</span></span>
+<span class="line"><span style="color:#B392F0;">./sslscan</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">xxx.com</span></span></code></pre><pre class="shiki github-light vp-code-light"><code><span class="line"><span style="color:#6A737D;"># 安装sslscan</span></span>
+<span class="line"><span style="color:#6A737D;"># centos如果提示没有zlib.h需要安装这个（可以先不安装）</span></span>
+<span class="line"><span style="color:#6F42C1;">yum</span><span style="color:#24292E;"> </span><span style="color:#032F62;">install</span><span style="color:#24292E;"> </span><span style="color:#005CC5;">-y</span><span style="color:#24292E;"> </span><span style="color:#032F62;">zlib</span><span style="color:#24292E;"> </span><span style="color:#032F62;">zlib-devel</span></span>
+<span class="line"><span style="color:#6A737D;"># clone</span></span>
+<span class="line"><span style="color:#6F42C1;">git</span><span style="color:#24292E;"> </span><span style="color:#032F62;">clone</span><span style="color:#24292E;"> </span><span style="color:#032F62;">https://github.com/rbsec/sslscan</span></span>
+<span class="line"><span style="color:#005CC5;">cd</span><span style="color:#24292E;"> </span><span style="color:#032F62;">sslscan/</span></span>
+<span class="line"><span style="color:#6F42C1;">make</span><span style="color:#24292E;"> </span><span style="color:#032F62;">static</span></span>
+<span class="line"><span style="color:#6A737D;"># 查看是否安装成功</span></span>
+<span class="line"><span style="color:#6F42C1;">./sslscan</span></span>
+<span class="line"><span style="color:#6A737D;"># 使用，就可以出现上面的图片类似的结果</span></span>
+<span class="line"><span style="color:#6F42C1;">./sslscan</span><span style="color:#24292E;"> </span><span style="color:#032F62;">xxx.com</span></span></code></pre></div><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#e1e4e8;">server {</span></span>
+<span class="line"><span style="color:#e1e4e8;">	listen 443 ssl;</span></span>
+<span class="line"><span style="color:#e1e4e8;">	server_name xxx.com;</span></span>
+<span class="line"><span style="color:#e1e4e8;">	ssl_certificate /etc/nginx/conf.d/ssl/xxx.com.cert.pem;</span></span>
+<span class="line"><span style="color:#e1e4e8;">	ssl_certificate_key /etc/nginx/conf.d/ssl/xxx.com.key.pem;</span></span>
+<span class="line"><span style="color:#e1e4e8;">    # TLS版本</span></span>
+<span class="line"><span style="color:#e1e4e8;">	ssl_protocols TLSv1.2 TLSv1.3;</span></span>
+<span class="line"><span style="color:#e1e4e8;">    # 加密套件</span></span>
+<span class="line"><span style="color:#e1e4e8;">	ssl_ciphers HIGH:!aNULL:!MD5;</span></span>
+<span class="line"><span style="color:#e1e4e8;">	location / {</span></span>
+<span class="line"><span style="color:#e1e4e8;">		root /usr/share/nginx/html/fanli;</span></span>
+<span class="line"><span style="color:#e1e4e8;">	}</span></span>
+<span class="line"><span style="color:#e1e4e8;">}</span></span></code></pre><pre class="shiki github-light vp-code-light"><code><span class="line"><span style="color:#24292e;">server {</span></span>
+<span class="line"><span style="color:#24292e;">	listen 443 ssl;</span></span>
+<span class="line"><span style="color:#24292e;">	server_name xxx.com;</span></span>
+<span class="line"><span style="color:#24292e;">	ssl_certificate /etc/nginx/conf.d/ssl/xxx.com.cert.pem;</span></span>
+<span class="line"><span style="color:#24292e;">	ssl_certificate_key /etc/nginx/conf.d/ssl/xxx.com.key.pem;</span></span>
+<span class="line"><span style="color:#24292e;">    # TLS版本</span></span>
+<span class="line"><span style="color:#24292e;">	ssl_protocols TLSv1.2 TLSv1.3;</span></span>
+<span class="line"><span style="color:#24292e;">    # 加密套件</span></span>
+<span class="line"><span style="color:#24292e;">	ssl_ciphers HIGH:!aNULL:!MD5;</span></span>
+<span class="line"><span style="color:#24292e;">	location / {</span></span>
+<span class="line"><span style="color:#24292e;">		root /usr/share/nginx/html/fanli;</span></span>
+<span class="line"><span style="color:#24292e;">	}</span></span>
+<span class="line"><span style="color:#24292e;">}</span></span></code></pre></div>`,14),o=[p];function c(t,r,i,y,d,E){return n(),a("div",null,o)}const m=s(e,[["render",c]]);export{u as __pageData,m as default};
