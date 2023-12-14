@@ -1,1 +1,0 @@
-import{_ as o,D as t,o as s,c as a,I as c,w as r,a as _}from"./framework.PZ77rLUR.js";const n={},d={class:"box"};function f(l,i){const e=t("sb-footer");return s(),a("div",d,[c(e,{class:"layout-1",height:"50"},{default:r(()=>[_(" Footer ")]),_:1})])}const m=o(n,[["render",f],["__scopeId","data-v-1ffda841"]]);export{m as default};

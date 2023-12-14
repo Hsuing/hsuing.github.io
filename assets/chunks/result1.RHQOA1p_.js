@@ -1,0 +1,1 @@
+import{_ as t,D as s,o,c as n,I as c}from"./framework.byfcZK4E.js";const r={};function l(i,a){const e=s("sb-result");return o(),n("div",null,[c(e,{title:"This is title",subtitle:"This is subtitle",status:"info"})])}const u=t(r,[["render",l]]);export{u as default};

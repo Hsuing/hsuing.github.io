@@ -1,1 +1,0 @@
-import{_ as s,D as o,o as r,c,I as t}from"./framework.PZ77rLUR.js";const n={},_={class:"box"};function a(p,d){const e=o("sb-progress");return r(),c("div",_,[t(e,{width:"50%",percent:45})])}const i=s(n,[["render",a]]);export{i as default};

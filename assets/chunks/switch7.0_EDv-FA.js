@@ -1,1 +1,0 @@
-import{_ as o,D as n,o as c,c as s,I as t,F as a}from"./framework.PZ77rLUR.js";const r={};function _(l,d){const e=n("sb-switch");return c(),s(a,null,[t(e,{loading:!0}),t(e,{type:"round",loading:!0}),t(e,{type:"line",loading:!0})],64)}const p=o(r,[["render",_],["__scopeId","data-v-3eea5f52"]]);export{p as default};

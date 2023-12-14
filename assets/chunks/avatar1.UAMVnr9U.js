@@ -1,1 +1,0 @@
-import{_ as s,D as c,o as r,c as n,I as a,w as t,a as o}from"./framework.PZ77rLUR.js";const _={},d={class:"box"};function f(l,i){const e=c("sb-avatar");return r(),n("div",d,[a(e,null,{default:t(()=>[o("A")]),_:1}),a(e,{style:{backgroundColor:"#3370ff"}},{default:t(()=>[o("kif")]),_:1})])}const u=s(_,[["render",f],["__scopeId","data-v-f053e175"]]);export{u as default};

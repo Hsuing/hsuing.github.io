@@ -1,1 +1,0 @@
-import{h as t,D as n,o as r,b as a}from"./framework.PZ77rLUR.js";const _={__name:"switch5",setup(l){const e=t(!1);return(h,c)=>{const o=n("sb-switch");return r(),a(o,{checked:e.value,"onUpdate:checked":c[0]||(c[0]=s=>e.value=s),"checked-color":"rgb(245, 63, 63)","unchecked-color":"#14c9C9"},null,8,["checked"])}}};export{_ as default};

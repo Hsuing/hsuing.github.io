@@ -1,0 +1,1 @@
+import{_ as o,D as c,o as n,c as t,I as s}from"./framework.byfcZK4E.js";const _={},a={class:"box"};function r(i,p){const e=c("sb-spin");return n(),t("div",a,[s(e),s(e,{size:28}),s(e,{size:36})])}const f=o(_,[["render",r],["__scopeId","data-v-dc8fb0ae"]]);export{f as default};
