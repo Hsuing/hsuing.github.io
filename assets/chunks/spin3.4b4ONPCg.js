@@ -1,1 +1,0 @@
-import{_ as s,D as o,o as n,c,I as t}from"./framework.byfcZK4E.js";const _={},r={class:"box"};function a(i,p){const e=o("sb-spin");return n(),c("div",r,[t(e,{size:36,dot:""})])}const f=s(_,[["render",a]]);export{f as default};

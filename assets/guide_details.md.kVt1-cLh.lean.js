@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./chunks/framework.CIzs38F0.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"guide/details.md","filePath":"guide/details.md","lastUpdated":1701229860000}'),s={name:"guide/details.md"};function d(r,i,o,c,n,l){return a(),t("div")}const m=e(s,[["render",d]]);export{_ as __pageData,m as default};

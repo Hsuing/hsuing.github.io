@@ -1,0 +1,1 @@
+import{d as n,h as s,D as l,o as p,c as r,I as u,w as d,a as c}from"./framework.CIzs38F0.js";const f=n({__name:"input1",setup(m){const e=s("");return(_,t)=>{const o=l("sb-input");return p(),r("div",null,[u(o,{modelValue:e.value,"onUpdate:modelValue":t[0]||(t[0]=a=>e.value=a),placeholder:"请输入内容"},{default:d(()=>[c("ss")]),_:1},8,["modelValue"])])}}});export{f as default};

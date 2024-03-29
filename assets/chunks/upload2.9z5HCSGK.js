@@ -1,1 +1,0 @@
-import{_ as e,D as s,o as c,c as t,I as a}from"./framework.byfcZK4E.js";const n={},r={class:".upload-demo"};function _(d,l){const o=s("sb-upload");return c(),t("div",r,[a(o,{drag:"true"})])}const u=e(n,[["render",_]]);export{u as default};

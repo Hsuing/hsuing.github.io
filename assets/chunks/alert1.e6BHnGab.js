@@ -1,1 +1,0 @@
-import{_ as t,D as o,o as s,c as a,I as c,w as n,a as r}from"./framework.byfcZK4E.js";const _={},l={class:"box"};function i(d,f){const e=o("sb-alert");return s(),a("div",l,[c(e,null,{default:n(()=>[r("This is an info alert.")]),_:1})])}const p=t(_,[["render",i]]);export{p as default};

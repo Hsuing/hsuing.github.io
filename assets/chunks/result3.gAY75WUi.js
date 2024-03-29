@@ -1,0 +1,1 @@
+import{_ as t,D as s,o as n,c as o,I as r}from"./framework.CIzs38F0.js";const c={};function l(a,i){const e=s("sb-result");return n(),o("div",null,[r(e,{title:"This is title",subtitle:"This is subtitle",status:"warning"})])}const u=t(c,[["render",l]]);export{u as default};

@@ -1,0 +1,1 @@
+import{h as t,D as n,o as a,b as r}from"./framework.CIzs38F0.js";const h={__name:"switch1",setup(l){const e=t(!1);return(p,c)=>{const s=n("sb-switch");return a(),r(s,{checked:e.value,"onUpdate:checked":c[0]||(c[0]=o=>e.value=o)},null,8,["checked"])}}};export{h as default};
