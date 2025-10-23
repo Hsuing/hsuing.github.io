@@ -1,0 +1,45 @@
+import{_ as s,o as a,c as n,R as l}from"./chunks/framework.zUbWieqp.js";const F=JSON.parse('{"title":"1. 容器时区","description":"","frontmatter":{},"headers":[],"relativePath":"guide/container/docker/9-case_time.md","filePath":"guide/container/docker/9-case_time.md","lastUpdated":1733967691000}'),p={name:"guide/container/docker/9-case_time.md"},e=l(`<h1 id="_1-容器时区" tabindex="-1">1. 容器时区 <a class="header-anchor" href="#_1-容器时区" aria-label="Permalink to &quot;1. 容器时区&quot;">​</a></h1><h2 id="_1-1-docker" tabindex="-1">1.1 docker <a class="header-anchor" href="#_1-1-docker" aria-label="Permalink to &quot;1.1 docker&quot;">​</a></h2><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#e1e4e8;">docker run -p 3306:3306 --name mysql -v /etc/localtime:/etc/localtime</span></span></code></pre><pre class="shiki github-light vp-code-light"><code><span class="line"><span style="color:#24292e;">docker run -p 3306:3306 --name mysql -v /etc/localtime:/etc/localtime</span></span></code></pre></div><h2 id="_1-2-dockerfile" tabindex="-1">1.2 Dockerfile <a class="header-anchor" href="#_1-2-dockerfile" aria-label="Permalink to &quot;1.2 Dockerfile&quot;">​</a></h2><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#6A737D;"># 方法1</span></span>
+<span class="line"><span style="color:#6A737D;"># 添加时区环境变量，亚洲，上海</span></span>
+<span class="line"><span style="color:#B392F0;">ENV</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">TimeZone=Asia/Shanghai</span></span>
+<span class="line"><span style="color:#6A737D;"># 使用软连接，并且将时区配置覆盖/etc/timezone</span></span>
+<span class="line"><span style="color:#B392F0;">RUN</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">ln</span><span style="color:#E1E4E8;"> </span><span style="color:#79B8FF;">-snf</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">/usr/share/zoneinfo/</span><span style="color:#E1E4E8;">$TimeZone </span><span style="color:#9ECBFF;">/etc/localtime</span><span style="color:#E1E4E8;"> &amp;&amp; </span><span style="color:#79B8FF;">echo</span><span style="color:#E1E4E8;"> $TimeZone </span><span style="color:#F97583;">&gt;</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">/etc/timezone</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;"># 方法2</span></span>
+<span class="line"><span style="color:#6A737D;"># CentOS</span></span>
+<span class="line"><span style="color:#B392F0;">RUN</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">echo</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">&quot;Asia/shanghai&quot;</span><span style="color:#E1E4E8;"> </span><span style="color:#F97583;">&gt;</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">/etc/timezone</span></span>
+<span class="line"><span style="color:#6A737D;"># Ubuntu</span></span>
+<span class="line"><span style="color:#B392F0;">RUN</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">cp</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">/usr/share/zoneinfo/Asia/Shanghai</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">/etc/localtime</span></span></code></pre><pre class="shiki github-light vp-code-light"><code><span class="line"><span style="color:#6A737D;"># 方法1</span></span>
+<span class="line"><span style="color:#6A737D;"># 添加时区环境变量，亚洲，上海</span></span>
+<span class="line"><span style="color:#6F42C1;">ENV</span><span style="color:#24292E;"> </span><span style="color:#032F62;">TimeZone=Asia/Shanghai</span></span>
+<span class="line"><span style="color:#6A737D;"># 使用软连接，并且将时区配置覆盖/etc/timezone</span></span>
+<span class="line"><span style="color:#6F42C1;">RUN</span><span style="color:#24292E;"> </span><span style="color:#032F62;">ln</span><span style="color:#24292E;"> </span><span style="color:#005CC5;">-snf</span><span style="color:#24292E;"> </span><span style="color:#032F62;">/usr/share/zoneinfo/</span><span style="color:#24292E;">$TimeZone </span><span style="color:#032F62;">/etc/localtime</span><span style="color:#24292E;"> &amp;&amp; </span><span style="color:#005CC5;">echo</span><span style="color:#24292E;"> $TimeZone </span><span style="color:#D73A49;">&gt;</span><span style="color:#24292E;"> </span><span style="color:#032F62;">/etc/timezone</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;"># 方法2</span></span>
+<span class="line"><span style="color:#6A737D;"># CentOS</span></span>
+<span class="line"><span style="color:#6F42C1;">RUN</span><span style="color:#24292E;"> </span><span style="color:#032F62;">echo</span><span style="color:#24292E;"> </span><span style="color:#032F62;">&quot;Asia/shanghai&quot;</span><span style="color:#24292E;"> </span><span style="color:#D73A49;">&gt;</span><span style="color:#24292E;"> </span><span style="color:#032F62;">/etc/timezone</span></span>
+<span class="line"><span style="color:#6A737D;"># Ubuntu</span></span>
+<span class="line"><span style="color:#6F42C1;">RUN</span><span style="color:#24292E;"> </span><span style="color:#032F62;">cp</span><span style="color:#24292E;"> </span><span style="color:#032F62;">/usr/share/zoneinfo/Asia/Shanghai</span><span style="color:#24292E;"> </span><span style="color:#032F62;">/etc/localtime</span></span></code></pre></div><h2 id="_1-3-docker-compose" tabindex="-1">1.3 docker-compose <a class="header-anchor" href="#_1-3-docker-compose" aria-label="Permalink to &quot;1.3 docker-compose&quot;">​</a></h2><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#6A737D;">#第一种方式(推荐)：</span></span>
+<span class="line"><span style="color:#B392F0;">environment:</span></span>
+<span class="line"><span style="color:#E1E4E8;">  </span><span style="color:#B392F0;">TZ:</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">Asia/Shanghai</span></span>
+<span class="line"><span style="color:#E1E4E8;">  </span></span>
+<span class="line"><span style="color:#6A737D;">#第二种方式：</span></span>
+<span class="line"><span style="color:#B392F0;">environment:</span></span>
+<span class="line"><span style="color:#E1E4E8;">  SET_CONTAINER_TIMEZONE</span><span style="color:#F97583;">=</span><span style="color:#79B8FF;">true</span></span>
+<span class="line"><span style="color:#E1E4E8;">  CONTAINER_TIMEZONE</span><span style="color:#F97583;">=</span><span style="color:#9ECBFF;">Asia/Shanghai</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;">#第三种方式：</span></span>
+<span class="line"><span style="color:#B392F0;">volumes:</span></span>
+<span class="line"><span style="color:#E1E4E8;">  </span><span style="color:#B392F0;">-</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">/etc/timezone:/etc/timezone</span></span>
+<span class="line"><span style="color:#E1E4E8;">  </span><span style="color:#B392F0;">-</span><span style="color:#E1E4E8;"> </span><span style="color:#9ECBFF;">/etc/localtime:/etc/localtime</span></span></code></pre><pre class="shiki github-light vp-code-light"><code><span class="line"><span style="color:#6A737D;">#第一种方式(推荐)：</span></span>
+<span class="line"><span style="color:#6F42C1;">environment:</span></span>
+<span class="line"><span style="color:#24292E;">  </span><span style="color:#6F42C1;">TZ:</span><span style="color:#24292E;"> </span><span style="color:#032F62;">Asia/Shanghai</span></span>
+<span class="line"><span style="color:#24292E;">  </span></span>
+<span class="line"><span style="color:#6A737D;">#第二种方式：</span></span>
+<span class="line"><span style="color:#6F42C1;">environment:</span></span>
+<span class="line"><span style="color:#24292E;">  SET_CONTAINER_TIMEZONE</span><span style="color:#D73A49;">=</span><span style="color:#005CC5;">true</span></span>
+<span class="line"><span style="color:#24292E;">  CONTAINER_TIMEZONE</span><span style="color:#D73A49;">=</span><span style="color:#032F62;">Asia/Shanghai</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;">#第三种方式：</span></span>
+<span class="line"><span style="color:#6F42C1;">volumes:</span></span>
+<span class="line"><span style="color:#24292E;">  </span><span style="color:#6F42C1;">-</span><span style="color:#24292E;"> </span><span style="color:#032F62;">/etc/timezone:/etc/timezone</span></span>
+<span class="line"><span style="color:#24292E;">  </span><span style="color:#6F42C1;">-</span><span style="color:#24292E;"> </span><span style="color:#032F62;">/etc/localtime:/etc/localtime</span></span></code></pre></div>`,7),o=[e];function c(t,r,i,y,E,d){return a(),n("div",null,o)}const m=s(p,[["render",c]]);export{F as __pageData,m as default};
